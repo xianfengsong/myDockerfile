@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `item`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `item` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `amout` bigint(20) DEFAULT '0' COMMENT '库存',
+  `amount` bigint(20) DEFAULT '0' COMMENT '库存',
   `name` varchar(60) DEFAULT NULL COMMENT '名称',
   `description` varchar(2048) DEFAULT NULL COMMENT '描述',
   `category` varchar(40) DEFAULT NULL COMMENT '类目',
