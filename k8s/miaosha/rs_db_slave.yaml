@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: mysql-slave-rs
+  namespace: songxianfeng
+  labels: 
+   role: mysql-slave
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      role: mysql-slave
+  template:
+    metadata:
+      labels:
+       role: mysql-slave
+    spec:
+       containers:
+        - name: slave
+          image: cr.d.xiaomi.net/songxianfeng/mysql_slave
+          resources:
+            limits:
+              cpu: 2
+              memory: "2048Mi"
+          ports:
+           - containerPort: 3306

@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+ name: miaosha-deployment
+ namespace: songxianfeng
+spec:
+ template:
+  metadata:
+   labels:
+    app: miaosha
+  spec:
+   containers:
+   - name: front-end
+     image: cr.d.xiaomi.net/songxianfeng/miaosha-server
+     ports:
+     - containerPort: 8080

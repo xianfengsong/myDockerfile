@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ name: miaosha-ingress
+spec:
+ rules:
+  - host: shop.com
+    http:
+      paths:
+      - path: /miaosha
+        backend:
+         serviceName: miaosha-deployment 
+         servicePort: 8080

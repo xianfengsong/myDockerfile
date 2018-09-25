@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: mysql-rs
+  namespace: songxianfeng
+  labels: 
+   role: mysql-master
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      role: mysql-master
+  template:
+    metadata:
+      labels:
+       role: mysql-master
+    spec:
+       containers:
+        - name: master
+          image: cr.d.xiaomi.net/songxianfeng/mysql_master
+          resources:
+            limits:
+              cpu: 2
+              memory: "2048Mi"
+          ports:
+           - containerPort: 3306
+
